@@ -9,14 +9,20 @@ class XylophoneApp extends StatelessWidget {
     player.play(AssetSource('note$soundNumber.wav'));
   }
 
+
   Expanded buildKey({required Color color, required int soundNumber}) {
     return Expanded(
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(backgroundColor: color),
+      child: TextButton(
+        style: TextButton.styleFrom(
+          backgroundColor: color,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.zero, // Rectangular corners
+          ),
+        ),
         onPressed: () {
           playSound(soundNumber);
         },
-        child: null,
+        child: Text(''), // No label is needed if not desired
       ),
     );
   }
